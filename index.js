@@ -83,19 +83,6 @@ function filterGap(predicate) {
   };
 }
 
-function joinNil(sep) {
-  const reducer = (a, b, i) => {
-    return ifElse(isNil,
-      pipe(always(null), add(a)),
-      add(a)
-    )(b);
-  };
-  
-  return function(r) {
-    return reduceX(reducer, '')(r);
-  };
-}
-
 // converts an array to an object where the indices
 // are the keys. This may already exist in Ramda
 function rToO(r) {
