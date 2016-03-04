@@ -2,19 +2,40 @@
 Functions that extend the Ramda.js library
 
 ## filters
-isNumber(x)
+`isNumber(x)`
 
-isString(x)
+`isString(x)`
 
-isObject(x)
+`isObject(x)`
 
-isArray(x)
+`isArray(x)`
 
-isFunction(x)
+`isFunction(x)`
 
-isEven(x)
+`isEven(x)`
 
-isOdd(x)
+`isOdd(x)`
 
 filterOut :: (a -> Boolean) -> f a -> f a
-filterOut(predicate)
+`filterOut(predicate, xs)`
+
+`filterOutGap(predicate, xs)`
+
+`filterGap(predicate, xs)`
+
+Array to Object converter
+`rToO(r)`
+
+`tryCatch(fn0, fn1, x)`
+
+`splitNum(seperator, x)`
+
+`typeCtor(x)`
+
+`copy(r)`
+
+`feed(xs)`
+
+`reduceUntil(iterator, cond, v0, xs)`
+
+`alphabet()`
