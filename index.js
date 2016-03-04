@@ -10,7 +10,7 @@ const {
   identity, ifElse, isNil, is, isEmpty, intersperse,
   join,
   length, lens, lensIndex, lensPath,
-  map, multiply,
+  map, modulo, multiply,
   not,
   of, or, omit, over,
   path, pipe, prop,
@@ -36,7 +36,7 @@ function clog(fn) {
   };
 }
 
-
+// filters
 function isNumber(x) {
   return is(Number, x);
 }
@@ -57,11 +57,19 @@ function isFunction(x) {
   return is(Function, x);
 }
 
+function isEven(x) {
+  return pipe(flip(modulo)(2), equals(0))(x);
+}
+
+function isOdd(x) {
+  return pipe(isEven, not)(x);
+}
+
 // returns a new array with the predicate values removed
 // semantically convenient
 function filterOut(predicate) {
-  return function(r) {
-    return filter(pipe(predicate, not), r);
+  return function(xs) {
+    return filter(pipe(predicate, not), xs);
   };
 }
 
@@ -79,7 +87,7 @@ function filterOutGap(predicate) {
 // see filterOutGap
 function filterGap(predicate) {
   return function(xs) {
-    return filterOutGap(pipe(predicate, not));
+    return filterOutGap(pipe(predicate, not))(xs);
   };
 }
 
@@ -165,7 +173,6 @@ function feed(xs) {
     const queue = filter(anyPass([isObject, isArray, isFunction]), xs);
     let xsCp = filterOutGap(anyPass([isObject, isArray, isFunction]), xs);
 
-    // fill nulls with their original values
     let cookified = map(
       ifElse(isNil,
         always(queue.shift()),
