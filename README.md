@@ -7,29 +7,36 @@ Head over to `/develop` to check out the source or make a contribution!
 
 ##### `mapX(iterator, xs)`
 ###### provides the iterator with access to `i`: the index of the current element
-```
+```javascript
 mapX((x, i) => i, ['hey', 'how', 'are', 'you'])
 // => [0, 1, 2, 3]
 ```
 
 ##### `filterX(predicate, xs)`
 ###### provides the predicate with access to `i`: the index of the current element
-```
+```javascript
 filterX((x, i) => isEven(i), ['hey', 'how', 'are', 'you'])
 // => ['hey', 'are']
 ```
 
 ##### `reduceX(reducer, init, xs)`
 ###### provides the reducer with access to `i`: the index of the current element
-```
+```javascript
 reduceX((a, b, i) => a + b + i, 0, [5, 10, 15, 20])
 // => [56]
 ```
 
 ## misc
+
+##### `attachToWindow(subset, backup)`
 String `subset`: indicates which functions to flood the scope with
 Boolean `backup`: flag to indicate whether window backups should be made when there are naming collisions with window functions and Ramda functions
-`attachToWindow(subset, backup)`
+```javascript
+attachToWindow('math', true);
+attachToWindow('lenses', true);
+attachToWindow('all', true);
+attachToWindow('default', true);
+```
 
 ## filters
 
