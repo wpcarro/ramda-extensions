@@ -36,8 +36,52 @@ filterOut :: (a -> Boolean) -> f a -> f a
 Array to Object converter
 `rToO(r)`
 
-Try-Catch handler
-`tryCatch(fn0, fn1, x)`
+### tryCatch(fn0, fn1, x)
+
+```
+// input: 'hello world'
+// desired output: 'helloXworld'
+
+// this throws:
+join('X')('hello world')
+
+// this does not throw:
+compose(
+  join('X'),
+  split(' ')
+)('hello world')
+
+// abstract that fn composition into an identifier
+let strJoin = joint => compose(join(joint), split(' '));
+
+// we will create a fn that returns either a string or an array, unpredictably
+const stringOrArray = () => {
+  const {floor, random} = Math;
+  const str = 'hello world';
+  const arr = ['hello', 'world'];
+  
+  return [str, arr][floor(random() * 2)];
+};
+
+tryCatch(
+  join('X'),
+  strJoin('X')
+)(stringOrArray())
+```
+
+### randomIdx(r)
+```
+const r = ['Jim', 'Mike', 'George', 'Harry'];
+let randomName = r[randomIdx(r)];
+// => 'George'
+```
+
+### randomElement(r)
+```
+const r = ['Jim', 'Mike', 'George', 'Harry'];
+let randomName = randomElement(r);
+// => 'Harry'
+```
 
 Number splitter
 `splitNum(seperator, x)`
