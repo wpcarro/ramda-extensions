@@ -202,6 +202,14 @@ function rToO(r) {
   return reduceX(buildO, {})(r);
 }
 
+// converts an object to an array. 
+// This may already exist in Ramda
+function oToR(o) {
+  return map(
+    prop(_, o)
+  )(keys(o));
+}
+
 // useful for error-handling
 // example:
 //   tryCatch(
