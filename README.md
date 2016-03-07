@@ -53,8 +53,8 @@ isOdd(8) // false
 ```
 
 # filter fns
-filterOut :: (a -> Boolean) -> f a -> f a
-##### `filterOut(predicate, xs)` (alias discard(..))
+`filterOut | discard :: (a -> Boolean) -> f a -> f a`
+##### `filterOut(predicate, xs) or discard(predicate, xs)`
 ```javascript
 filterOut(isString, ['please', 'let', 'me', 'stay'])
 // => []
@@ -75,7 +75,7 @@ discard(isString, [1, 'a', 2, 'b', 3, 'c'])
 // => [1, 2, 3]
 ```
 
-##### `filterOutGap(predicate, xs)` (alias discardGap(..)) 
+##### `filterOutGap(predicate, xs) or discardGap(predicate, xs)`
 ```javascript
 filterOutGap(isString)([1, 'a', 2, 'b', 3, 'c'])
 // => [1, null, 2, null, 3, null]
@@ -85,7 +85,7 @@ discardGap(isString)([1, 'a', 2, 'b', 3, 'c'])
 // => [1, null, 2, null, 3, null]
 ```
 
-##### `filterGap(predicate, xs)` (alias keepGap(..))
+##### `filterGap(predicate, xs) or keep(predicate, xs)`
 ```javascript
 filterGap(isString)([1, 'a', 2, 'b', 3, 'c'])
 // => [null, 2, null, 3, null]
