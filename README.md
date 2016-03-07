@@ -58,9 +58,7 @@ isOdd(8) // false
 ```javascript
 filterOut(isString, ['please', 'let', 'me', 'stay'])
 // => []
-```
 
-```javascript
 discard(isString, ['please', 'let', 'me', 'stay'])
 // => []
 ```
@@ -68,9 +66,7 @@ discard(isString, ['please', 'let', 'me', 'stay'])
 ```javascript
 filterOut(isString, [1, 'a', 2, 'b', 3, 'c'])
 // => [1, 2, 3]
-```
 
-```javascript
 discard(isString, [1, 'a', 2, 'b', 3, 'c'])
 // => [1, 2, 3]
 ```
@@ -79,8 +75,7 @@ discard(isString, [1, 'a', 2, 'b', 3, 'c'])
 ```javascript
 filterOutGap(isString)([1, 'a', 2, 'b', 3, 'c'])
 // => [1, null, 2, null, 3, null]
-```
-```javascript
+
 discardGap(isString)([1, 'a', 2, 'b', 3, 'c'])
 // => [1, null, 2, null, 3, null]
 ```
@@ -89,8 +84,7 @@ discardGap(isString)([1, 'a', 2, 'b', 3, 'c'])
 ```javascript
 filterGap(isString)([1, 'a', 2, 'b', 3, 'c'])
 // => [null, 2, null, 3, null]
-```
-```javascript
+
 keepGap(isString)([1, 'a', 2, 'b', 3, 'c'])
 // => [null, 2, null, 3, null]
 ```
