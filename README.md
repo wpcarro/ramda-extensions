@@ -199,6 +199,12 @@ const rCp = copy(r);
 
 ### `feed(xs)`
 ###### array pulverizer
+Breaks up the elements in an array at the first level of depth. If the elements are Arrays, Functions, or Objects, they are left alone.
+```
+const r = [12, 13, 14, 'fifteen', {a: 1, b: 2, c: 3}, 17, 18];
+feed(r)
+// => [1, 2, 1, 3, 1, 4, 'f', 'i', 'f', 't', 'e', 'e', 'n', {a: 1, b: 2, c: 3}, 1, 7, 1, 8]
+```
 
 
 ### `reduceUntil(iterator, cond, v0, xs)`
