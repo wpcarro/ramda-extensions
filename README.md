@@ -10,43 +10,43 @@ Boolean `backup`: flag to indicate whether window backups should be made when th
 
 ## filters
 
-### `isNumber(x)`
+##### `isNumber(x)`
 ```javascript
 isNumber(19)         // => true
 isNumber('fifteen')  // => false
 ```
 
-### `isString(x)`
+##### `isString(x)`
 ```javascript
 isString('yarn')      // true
 isString(19)          // false
 ```
 
-### `isObject(x)`
+##### `isObject(x)`
 ```javascript
 isObject({a: 1, b: 2, c: 3}) // true
 isObject('love')             // false
 ```
 
-### `isArray(x)`
+##### `isArray(x)`
 ```javascript
 isArray([2, 4, 6, 8])  // true
 isArray('Ray Charles') // false
 ```
 
-### `isFunction(x)`
+##### `isFunction(x)`
 ```javascript
 isFunction(x => x * 2)  // true
 isFunction('breathing') // false
 ```
 
-### `isEven(x)`
+##### `isEven(x)`
 ```javascript
 isEven(8) // true
 isEven(9) // false
 ```
 
-### `isOdd(x)`
+##### `isOdd(x)`
 ```javascript
 isOdd(9) // true
 isOdd(8) // false
@@ -54,7 +54,7 @@ isOdd(8) // false
 
 # filter fns
 filterOut :: (a -> Boolean) -> f a -> f a
-### `filterOut(predicate, xs)` (alias discard(..))
+##### `filterOut(predicate, xs)` (alias discard(..))
 ```javascript
 filterOut(isString, ['please', 'let', 'me', 'stay'])
 // => []
@@ -75,7 +75,7 @@ discard(isString, [1, 'a', 2, 'b', 3, 'c'])
 // => [1, 2, 3]
 ```
 
-### `filterOutGap(predicate, xs)` (alias discardGap(..)) 
+##### `filterOutGap(predicate, xs)` (alias discardGap(..)) 
 ```javascript
 filterOutGap(isString)([1, 'a', 2, 'b', 3, 'c'])
 // => [1, null, 2, null, 3, null]
@@ -85,7 +85,7 @@ discardGap(isString)([1, 'a', 2, 'b', 3, 'c'])
 // => [1, null, 2, null, 3, null]
 ```
 
-### `filterGap(predicate, xs)` (alias keepGap(..))
+##### `filterGap(predicate, xs)` (alias keepGap(..))
 ```javascript
 filterGap(isString)([1, 'a', 2, 'b', 3, 'c'])
 // => [null, 2, null, 3, null]
@@ -97,21 +97,21 @@ keepGap(isString)([1, 'a', 2, 'b', 3, 'c'])
 
 # useful utils
 
-### `rToO(r)`
+##### `rToO(r)`
 ###### Array to Object converter
 ```javascript
 rToO(['william', 'patrick', 'carroll'])
 // => {0: 'william', 1: 'patrick', 2: 'carroll'}
 ```
 
-### `oToR(o)`
+##### `oToR(o)`
 ###### Object to Array converter
 ```javascript
 oToR({0: 'william', 1: 'patrick', 2: 'carroll'})
 // => ['william', 'patrick', 'carroll']
 ```
 
-### tryCatch(fn0, fn1, x)
+##### tryCatch(fn0, fn1, x)
 ###### exception handling
 ```javascript
 // input: 'hello world'
@@ -144,7 +144,7 @@ tryCatch(
 )(stringOrArray())
 ```
 
-### randomIdx(r)
+##### randomIdx(r)
 ###### random index generator
 Randomly generates an index that is within the bounds of the supplied array.
 ```javascript
@@ -153,7 +153,7 @@ let randomName = r[randomIdx(r)];
 // => 'George'
 ```
 
-### randomElement(r)
+##### randomElement(r)
 ###### random element selector
 Randomly selects an element from the supplied array.
 ```javascript
@@ -162,14 +162,14 @@ let randomName = randomElement(r);
 // => 'Harry'
 ```
 
-### `splitNum(seperator, x)`
+##### `splitNum(seperator, x)`
 ###### number splitter
 ```javascript
 splitNum(11) // [1, 1]
 splitNum(1992) // [1, 9, 9, 2]
 ```
 
-### `typeCtor(x)`
+##### `typeCtor(x)`
 ###### constructor fetcher
 ```javascript
 map(
@@ -179,7 +179,7 @@ map(
 ```
 
 
-### `copy(r)`
+##### `copy(r)`
 ###### array copier
 ```javascript
 // This block of code...
@@ -193,7 +193,7 @@ const r = [1, 2, 3];
 const rCp = copy(r);
 ```
 
-### `feed(xs)`
+##### `feed(xs)`
 ###### array pulverizer
 Breaks up the elements in an array at the first level of depth. If the elements are Arrays, Functions, or Objects, they are left alone.
 ```javascript
@@ -211,7 +211,7 @@ reduce(add, 0)(feed(r)); // => 18
 // 1 + 2 + 1 + 3 + 1 + 4 + 1 + 5
 ```
 
-### `reduceUntil(iterator, cond, v0, xs)`
+##### `reduceUntil(iterator, cond, v0, xs)`
 ###### conditioned reduce
 ```javascript
 const gte10 = flip(gte)(10);
@@ -221,7 +221,7 @@ reduceUntil(add, gte10, 0, [2, 4, 6, 8, 10, 12])
 ```
 
 
-### `alphabet()`
+##### `alphabet()`
 ###### alphabet generator
 ```javascript
 alphabet()
@@ -241,7 +241,7 @@ const fullAlphabet = ap([toLowerCase, toUper], alphabet);
 ```
 
 # Collections in Parallel
-### `parallelMap(iterator)`
+##### `parallelMap(iterator)`
 ###### map across multiple arrays
 
 ```javascript
@@ -252,7 +252,7 @@ parallelMap(add(5))
 //     [15, 16, 17]]
 ```
 
-### `parallelReduce(reducer, init)`
+##### `parallelReduce(reducer, init)`
 ###### reduce multiple arrays
 
 ```javascript
@@ -263,7 +263,7 @@ parallelReduce(add, 0)
 // => [6, 33, 129]
 ```
 
-### `parallelFilter(predicate)`
+##### `parallelFilter(predicate)`
 ###### filter multiple arrays
 
 ```javascript
