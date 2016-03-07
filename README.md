@@ -206,6 +206,14 @@ feed(r)
 // => [1, 2, 1, 3, 1, 4, 'f', 'i', 'f', 't', 'e', 'e', 'n', {a: 1, b: 2, c: 3}, 1, 7, 1, 8]
 ```
 
+```
+const r = [12, 13, 14, 15];
+
+reduce(add, 0)(r);       // => 54
+// 12 + 13 + 14 + 15
+reduce(add, 0)(feed(r)); // => 18
+// 1 + 2 + 1 + 3 + 1 + 4 + 1 + 5
+```
 
 ### `reduceUntil(iterator, cond, v0, xs)`
 ###### conditioned reduce
