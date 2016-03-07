@@ -387,3 +387,17 @@ function passesPredicates(predicates) {
     )(predicates);
   }
 }
+
+// returns a randomly generated index within the bounds of the supplied array
+function randomIdx(r) {
+  return compose(
+    Math.floor,
+    multiply(Math.random()),
+    length
+  )(r);
+}
+
+// returns a randomly selected item from the supplied array
+function randomElement(r) {
+  return r[randomIdx(r)];
+}
