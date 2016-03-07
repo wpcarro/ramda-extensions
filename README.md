@@ -116,7 +116,7 @@ oToR({0: 'william', 1: 'patrick', 2: 'carroll'})
 ```
 
 ### tryCatch(fn0, fn1, x)
-
+###### exception handling
 ```
 // input: 'hello world'
 // desired output: 'helloXworld'
@@ -149,6 +149,8 @@ tryCatch(
 ```
 
 ### randomIdx(r)
+###### random index generator
+Randomly generates an index that is within the bounds of the supplied array.
 ```
 const r = ['Jim', 'Mike', 'George', 'Harry'];
 let randomName = r[randomIdx(r)];
@@ -156,18 +158,23 @@ let randomName = r[randomIdx(r)];
 ```
 
 ### randomElement(r)
+###### random element selector
+Randomly selects an element from the supplied array.
 ```
 const r = ['Jim', 'Mike', 'George', 'Harry'];
 let randomName = randomElement(r);
 // => 'Harry'
 ```
 
-Number splitter
-`splitNum(seperator, x)`
+### `splitNum(seperator, x)`
+###### number splitter
+```
+splitNum(11) // [1, 1]
+splitNum(1992) // [1, 9, 9, 2]
+```
 
-Constructor fetcher
-`typeCtor(x)`
-
+### `typeCtor(x)`
+###### constructor fetcher
 ```
 map(
   typeCtor
@@ -175,31 +182,57 @@ map(
 // => [Number, Number, String, Object]
 ```
 
-Array copier
-`copy(r)`
 
-This block of code...
+### `copy(r)`
+###### array copier
 ```
+// This block of code...
 const r = [1, 2, 3];
 const rCp = r.slice();
 ```
-...is the same as this block of code:
+
 ```
+// ...is the same as this block of code:
 const r = [1, 2, 3];
 const rCp = copy(r);
 ```
 
-Array pulverizer
-`feed(xs)`
+### `feed(xs)`
+###### array pulverizer
 
-Conditioned Reduce
-`reduceUntil(iterator, cond, v0, xs)`
 
-Alphabet generator
-`alphabet()`
+### `reduceUntil(iterator, cond, v0, xs)`
+###### conditioned reduce
+```
+const gte10 = flip(gte)(10);
+reduceUntil(add, gte10, 0, [2, 4, 6, 8, 10, 12])
+// => 12
+// 2 + 4 + 6 = 12
+```
+
+
+### `alphabet()`
+###### alphabet generator
+```
+alphabet()
+// ["a", "b", "c", "d", "e",
+//  "f", "g", "h", "i", "j",
+//  "k", "l", "m", "n", "o",
+//  "p", "q", "r", "s", "t",
+//  "u", "v", "w", "x", "y", 
+//  "z"]
+
+const fullAlphabet = ap([toLowerCase, toUper], alphabet);
+// ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
+//  "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
+//  "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", 
+//  "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+//  "S", "T", "U", "V", "W", "X", "Y", "Z"]
+```
 
 # Collections in Parallel
-`parallelMap(iterator)`
+### `parallelMap(iterator)`
+###### map across multiple arrays
 
 ```
 parallelMap(add(5))
@@ -209,7 +242,8 @@ parallelMap(add(5))
 //     [15, 16, 17]]
 ```
 
-`parallelReduce(reducer, init)`
+### `parallelReduce(reducer, init)`
+###### reduce multiple arrays
 
 ```
 parallelReduce(add, 0)
@@ -219,7 +253,8 @@ parallelReduce(add, 0)
 // => [6, 33, 129]
 ```
 
-`parallelFilter(predicate)`
+### `parallelFilter(predicate)`
+###### filter multiple arrays
 
 ```
 let gte20 = flip(gte)(20);
