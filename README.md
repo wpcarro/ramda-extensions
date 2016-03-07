@@ -1,5 +1,8 @@
 # ramda-extensions
-Functions that extend the Ramda.js library
+###Functions that extend the Ramda.js library
+
+Head over to `/develop` to check out the source or make a contribution!
+
 
 ## filters
 `isNumber(x)`
