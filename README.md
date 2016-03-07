@@ -13,14 +13,14 @@ mapX((x, i) => i, ['hey', 'how', 'are', 'you'])
 ```
 
 ##### `filterX(predicate, xs)`
-###### provides the iterator with access to `i`: the index of the current element
+###### provides the predicate with access to `i`: the index of the current element
 ```
 filterX((x, i) => isEven(i), ['hey', 'how', 'are', 'you'])
 // => ['hey', 'are']
 ```
 
 ##### `reduceX(reducer, init, xs)`
-###### provides the iterator with access to `i`: the index of the current element
+###### provides the reducer with access to `i`: the index of the current element
 ```
 reduceX((a, b, i) => a + b + i, 0, [5, 10, 15, 20])
 // => [56]
