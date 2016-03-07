@@ -9,7 +9,7 @@ Boolean `backup`: flag to indicate whether window backups should be made when th
 `attachToWindow(subset, backup)`
 
 ## filters
-`isNumber(x)`
+### `isNumber(x)`
 
 `isString(x)`
 
