@@ -9,32 +9,111 @@ Boolean `backup`: flag to indicate whether window backups should be made when th
 `attachToWindow(subset, backup)`
 
 ## filters
+
 ### `isNumber(x)`
+```
+isNumber(19)         // => true
+isNumber('fifteen')  // => false
+```
 
-`isString(x)`
+### `isString(x)`
+```
+isString('yarn')      // true
+isString(19)          // false
+```
 
-`isObject(x)`
+### `isObject(x)`
+```
+isObject({a: 1, b: 2, c: 3}) // true
+isObject('love')             // false
+```
 
-`isArray(x)`
+### `isArray(x)`
+```
+isArray([2, 4, 6, 8])  // true
+isArray('Ray Charles') // false
+```
 
-`isFunction(x)`
+### `isFunction(x)`
+```
+isFunction(x => x * 2)  // true
+isFunction('breathing') // false
+```
 
-`isEven(x)`
+### `isEven(x)`
+```
+isEven(8) // true
+isEven(9) // false
+```
 
-`isOdd(x)`
+### `isOdd(x)`
+```
+isOdd(9) // true
+isOdd(8) // false
+```
 
 # filter fns
 filterOut :: (a -> Boolean) -> f a -> f a
-`filterOut(predicate, xs)`
+### `filterOut(predicate, xs)` (alias discard(..))
 
-`filterOutGap(predicate, xs)`
+```
+filterOut(isString, ['please', 'let', 'me', 'stay'])
+// => []
+```
 
-`filterGap(predicate, xs)`
+```
+discard(isString, ['please', 'let', 'me', 'stay'])
+// => []
+```
+
+```
+filterOut(isString, [1, 'a', 2, 'b', 3, 'c'])
+// => [1, 2, 3]
+```
+
+```
+discard(isString, [1, 'a', 2, 'b', 3, 'c'])
+// => [1, 2, 3]
+```
+
+### `filterOutGap(predicate, xs)` (alias discardGap(..)) 
+```
+filterOutGap(isString)([1, 'a', 2, 'b', 3, 'c'])
+// => [1, null, 2, null, 3, null]
+```
+
+```
+discardGap(isString)([1, 'a', 2, 'b', 3, 'c'])
+// => [1, null, 2, null, 3, null]
+```
+
+### `filterGap(predicate, xs)` (alias keepGap(..))
+```
+filterGap(isString)([1, 'a', 2, 'b', 3, 'c'])
+// => [null, 2, null, 3, null]
+```
+
+```
+keepGap(isString)([1, 'a', 2, 'b', 3, 'c'])
+// => [null, 2, null, 3, null]
+```
 
 # useful utils
 
-Array to Object converter
-`rToO(r)`
+
+### `rToO(r)`
+###### Array to Object converter
+```
+rToO(['william', 'patrick', 'carroll'])
+// => {0: 'william', 1: 'patrick', 2: 'carroll'}
+```
+
+### `oToR(o)`
+###### Object to Array converter
+```
+oToR({0: 'william', 1: 'patrick', 2: 'carroll'})
+// => ['william', 'patrick', 'carroll']
+```
 
 ### tryCatch(fn0, fn1, x)
 
