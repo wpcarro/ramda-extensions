@@ -9,8 +9,15 @@ Note: this is very much a W.I.P. I am open to contributions and suggestions, so 
 ## Index
 
 * [Logic](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#logic)
+  * [basic operators](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#basic-operators)
+  * [compound operators](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#compound-operators)
+  * [for objects](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#for-objects)
+  * [branching](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#branching)
+  * [misc](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#misc)
 
 * [Lenses](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#lenses)
+  * [lens constructors](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#lens-constructors)
+  * [lens operators](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#lens-operations)
 
 * [Math](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#math)
 
@@ -78,7 +85,7 @@ Note: this is very much a W.I.P. I am open to contributions and suggestions, so 
 
 ***
 
-###### lens ops
+###### lens operations
 [view](http://ramdajs.com/0.19.1/docs/#view)
 
 [set](http://ramdajs.com/0.19.1/docs/#set)
