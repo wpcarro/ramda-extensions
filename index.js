@@ -1,21 +1,21 @@
 const R = require('ramda');
 
 const {
-  always, add, addIndex, anyPass, ap, append,
+  always, add, addIndex, anyPass, ap, append, apply,
   compose, construct, converge, curry,
   divide,
   either, equals,
   filter, forEach, flatten, flip,
   has, head,
-  identity, ifElse, isNil, is, isEmpty, intersperse,
+  indexOf, identity, ifElse, isNil, is, isEmpty, intersperse,
   join,
-  length, lens, lensIndex, lensPath,
-  map, modulo, multiply,
+  last, length, lens, lensIndex, lensPath,
+  map, max, min, modulo, multiply,
   not,
   of, or, omit, over,
   path, pipe, prop,
   slice,
-  toUpper, trim,
+  take, takeLast, toUpper, trim,
   range, replace, reduce, reduced,
   split, sum,
   times, type, toString,
@@ -400,4 +400,109 @@ function randomIdx(r) {
 // returns a randomly selected item from the supplied array
 function randomElement(r) {
   return r[randomIdx(r)];
+}
+
+// convenience math fn when composing
+function round(x) {
+  return Math.round(x);
+}
+
+// dilutes an array based off a desired concentration
+function diluteArray(array, concentration) {
+  const numKeep = compose(round, multiply(concentration), length)(array);
+  
+  const length0 = length(array);
+  const numIdxs = range(0, numKeep);
+  
+  const idxMap = map(
+    compose(round, multiply(length0 / numKeep))
+  )(numIdxs);
+  
+  const indexMap = (xs, indexMap) => map(prop(_, xs), indexMap);
+  
+  return indexMap(array, idxMap);
+}
+
+// trim end
+function shortestListTrimEnd(l0, l1) {
+  const lengthShortest = (l0, l1) => converge(
+    min,
+    [pipe(head, length),
+     pipe(last, length)]
+  )([l0, l1]);
+  
+  const takeShortest = (l0, l1) => compose(
+    take(_),
+    lengthShortest
+  )(l0, l1);
+  
+  const finale = (l0, l1) => {
+    const ts = takeShortest(l0, l1);
+    return [ts(l0), ts(l1)];
+  };
+  
+  return finale(l0, l1);
+}
+
+// trim start
+function shortestListTrimStart(l0, l1) {
+  const lengthShortest = (l0, l1) => converge(
+    min,
+    [pipe(head, length),
+     pipe(last, length)]
+  )([l0, l1]);
+  
+  const takeShortest = (l0, l1) => compose(
+    takeLast(_),
+    lengthShortest
+  )(l0, l1);
+  
+  const finale = (l0, l1) => {
+    const ts = takeShortest(l0, l1);
+    return [ts(l0), ts(l1)];
+  };
+  
+  return finale(l0, l1);
+}
+
+// when given two lists of variable lengths, this function returns
+// two arrays where the longer one's length has been reduced to match
+// the shorter one's length
+function shortestListInterpolate(l0, l1) {
+  const longer = longestArray(l0, l1);
+  const shorter = shortestArray(l0, l1);
+  
+  const concentration = shorter.length / longer.length;
+  return [
+      diluteArray(longer, concentration),
+      shorter    
+    ];
+}
+
+// returns the array with the most amount of elements
+function longestArray(...arrays) {
+  const toLengths = (rOfRs) => map(length, rOfRs);
+  const maxs = r => Math.max.apply(this, r);
+  
+  const returnMax = (rOfRs) => {
+    const el = compose(maxs, toLengths)(rOfRs);
+    const i = compose(indexOf(el), toLengths)(rOfRs);
+    return rOfRs[i];
+  };
+
+  return returnMax(arrays);
+}
+
+// returns the array with the least amount of elements
+function shortestArray(...arrays) {
+  const toLengths = (rOfRs) => map(length, rOfRs);
+  const mins = r => Math.min.apply(this, r);
+  
+  const returnMin = (rOfRs) => {
+    const el = compose(mins, toLengths)(rOfRs);
+    const i = compose(indexOf(el), toLengths)(rOfRs);
+    return rOfRs[i];
+  };
+
+  return returnMin(arrays);
 }
