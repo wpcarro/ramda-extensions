@@ -8,8 +8,8 @@ Head over to `/develop` to check out the source or make a contribution!
 ##### `mapX(iterator, xs)`
 ###### provides the iterator with access to `i`: the index of the current element
 ```javascript
-mapX((x, i) => i, ['hey', 'how', 'are', 'you'])
-// => [0, 1, 2, 3]
+mapX((x, i) => add(x, i), ['hey', 'how', 'are', 'you'])
+// => ['hey0', 'how1', 'are2', 'you3']
 ```
 
 ##### `filterX(predicate, xs)`
