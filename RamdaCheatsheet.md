@@ -8,11 +8,11 @@ Note: this is very much a W.I.P. I am open to contributions and suggestions, so 
 
 ## Index
 
-[Logic](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#logic)
+* [Logic](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#logic)
 
-[Lenses](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#lenses)
+* [Lenses](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#lenses)
 
-[Math](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#math)
+* [Math](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#math)
 
 ## Logic
 ###### basic operators
