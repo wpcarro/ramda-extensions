@@ -203,7 +203,7 @@ function rToO(r) {
 }
 
 // converts an object to an array. 
-// This may already exist in Ramda
+// Ramda has a function, values(..) that has the same functionality
 function oToR(o) {
   return map(
     prop(_, o)
