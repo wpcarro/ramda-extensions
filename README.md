@@ -137,8 +137,9 @@ rToO(['william', 'patrick', 'carroll'])
 oToR({0: 'william', 1: 'patrick', 2: 'carroll'})
 // => ['william', 'patrick', 'carroll']
 ```
-Note: Ramda.js already has a function for this , `values(..)`.
-```
+
+Note: Ramda.js already has a function for this: `values(..)`.
+```javascript
 R.values({0: 'william', 1: 'patrick', 2: 'carroll'})
 // => ['william', 'patrick', 'carroll']
 ```
