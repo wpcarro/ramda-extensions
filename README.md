@@ -312,3 +312,31 @@ parallelFilter(gte10)
 //     [52, 21, 34],
 //     [    20, 31]]
 ```
+
+## shortest list
+
+List matching based off of [this](http://grasshopperprimer.com/en/1-foundations/1-4/3_data-stream-matching.html) spec.
+
+##### `shortestListTrimStart(l0, l1)`
+```javascript
+const l0 = ['a','b','c','d','e','f','g'];
+const l1 = [1,2,3];
+shortestListTrimStart(l0, l1);
+// => [["e", "f", "g"], [1, 2, 3]]
+```
+
+##### `shortestListTrimEnd(l0, l1)`
+```javascript
+const l0 = ['a','b','c','d','e','f','g'];
+const l1 = [1,2,3];
+shortestListTrimEnd(l0, l1);
+// => [["a", "b", "c"], [1, 2, 3]]
+```
+
+##### `shortestListInterpolate(l0, l1)`
+```javascript
+const l0 = ['a','b','c','d','e','f','g'];
+const l1 = [1,2,3];
+shortestListInterpolate(l0, l1);
+// => [["a", "c", "f"], [1, 2, 3]]
+```
