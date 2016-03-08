@@ -2,7 +2,7 @@
 
 The purpose of this document is to provide a cheatsheet for the Ramda.js library.
 This list reflects my current understanding of a categorization of the Ramda.js library that helps me.
-Also, until I can create a more useful categorization, I will rely on the ones used within Ramda's current documentation.
+Until I can create a more useful categorization, I will rely on the categories used within Ramda's current documentation (i.e. `Function`, `Lists`, `Logic`, `Math`, `Object`, `Relation`, `String`, and `Type`)
 
 Note: this is very much a W.I.P. I am open to contributions and suggestions, so do not hesitate to reach out.
 
