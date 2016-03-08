@@ -6,6 +6,14 @@ Until I can create a more useful categorization, I will rely on the categories u
 
 Note: this is very much a W.I.P. I am open to contributions and suggestions, so do not hesitate to reach out.
 
+## Index
+
+[Logic](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#logic)
+
+[Lenses](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#lenses)
+
+[Math](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#math)
+
 ## Logic
 ###### basic operators
 [both](http://ramdajs.com/0.19.1/docs/#both)
