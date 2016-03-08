@@ -1,4 +1,4 @@
-# Ramda Directory
+# Ramda Cheatsheet
 
 The purpose of this document is to provide a cheatsheet for the Ramda.js library.
 This list reflects my current understanding of a categorization of the Ramda.js library that helps me.
