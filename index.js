@@ -506,3 +506,23 @@ function shortestArray(...arrays) {
 
   return returnMin(arrays);
 }
+
+// applies the result of calling each detourFn
+// e.g. destinationFn = a => b => c => a * b * c // notice the arity of 3
+//      detourFns = [add(1), subtract(_, 1)]
+//      a = 17          (18, 16)(17)
+//
+//      add(1)(17)         => 18 assigned to first open parameter
+//      subtract(_, 1)(17) => 16 assigned to second open parameter
+//      original value        17 reserved for the last open parameter
+//                  
+// arity of destinationFn should equal detourFns.length + 1
+//
+function detour(detourFns, destinationFn) {
+  return function(a) {
+    return converge(
+      destinationFn,
+      [...detourFns, identity]
+    )(a);
+  };
+}
