@@ -340,3 +340,10 @@ const l1 = [1,2,3];
 shortestListInterpolate(l0, l1);
 // => [["a", "c", "f"], [1, 2, 3]]
 ```
+##### `detour(detourFns, destinationFn)`
+```javascript
+const lengthMinus1 = pipe(length, subtract(_, 1));
+const getInterior = detour([lengthMinus1], slice(1, _, _)); // underscores aren't necessary
+getInterior([2, 4, 6, 8, 10, 12]);
+// => [4, 6, 8, 10]
+```
