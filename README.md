@@ -211,7 +211,6 @@ map(
 // => [Number, Number, String, Object]
 ```
 
-
 ##### `copy(r)`
 ###### array copier
 ```javascript
@@ -272,6 +271,30 @@ const fullAlphabet = ap([toLowerCase, toUper], alphabet);
 //  "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
 //  "S", "T", "U", "V", "W", "X", "Y", "Z"]
 ```
+
+##### `detour(detourFns, destinationFn)`
+```javascript
+const lengthMinus1 = pipe(length, subtract(_, 1));
+const getInterior = detour([lengthMinus1], slice(1, _, _)); // underscores aren't necessary
+getInterior([2, 4, 6, 8, 10, 12]);
+// => [4, 6, 8, 10]
+```
+
+##### `forkverge(convergefn, forkfns)`
+```javascript
+
+```
+
+##### `wrap(a, b, .. z)`
+###### wraps an arbitrary number of elements in an array
+```javascript
+// useful as a convergence fn since its arity dynamic
+converge(wrap,
+  [add(1), subtract(_, 5), multiply(2)]
+)(12)
+// => [13, 7, 24]
+```
+
 
 # Collections in Parallel
 ##### `parallelMap(iterator)`
@@ -339,21 +362,4 @@ const l0 = ['a','b','c','d','e','f','g'];
 const l1 = [1,2,3];
 shortestListInterpolate(l0, l1);
 // => [["a", "c", "f"], [1, 2, 3]]
-```
-##### `detour(detourFns, destinationFn)`
-```javascript
-const lengthMinus1 = pipe(length, subtract(_, 1));
-const getInterior = detour([lengthMinus1], slice(1, _, _)); // underscores aren't necessary
-getInterior([2, 4, 6, 8, 10, 12]);
-// => [4, 6, 8, 10]
-```
-
-##### `forkverge(convergefn, forkfns)`
-```javascript
-// stubbed
-```
-
-##### `wrap(a, b, .. z)`
-```javascript
-// stubbed
 ```
