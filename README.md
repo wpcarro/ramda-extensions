@@ -293,6 +293,31 @@ converge(wrap,
 // => [13, 7, 24]
 ```
 
+##### `threadArgs(threadFns)`
+###### threads args to threadFns, left-to-right
+Say these are your `threadFns`...
+```javascript
+// threadFns
+add(1), subtract(_, 4), multiply(3)
+```
+...and these are your arguments
+```javascript
+// arguments
+4, 10, 3
+```
+`threadArgs` will supply the arguments to the fns in the following manner
+```
+4  --> add(1) ----------> 5
+10 --> subtract(_, 4) --> 6
+3  --> multiply(3) -----> 9
+```
+The result of the call to threadArgs will be an array.
+```javascript
+threadArgs(
+  add(1), subtract(_, 4), multiply(3)
+)(4, 10, 3)
+// => [5, 6, 9]
+```
 
 # Collections in Parallel
 ##### `parallelMap(iterator)`
