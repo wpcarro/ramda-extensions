@@ -347,3 +347,13 @@ const getInterior = detour([lengthMinus1], slice(1, _, _)); // underscores aren'
 getInterior([2, 4, 6, 8, 10, 12]);
 // => [4, 6, 8, 10]
 ```
+
+##### `forkverge(convergefn, forkfns)`
+```javascript
+// stubbed
+```
+
+##### `wrap(a, b, .. z)`
+```javascript
+// stubbed
+```
