@@ -21,6 +21,8 @@ Note: this is very much a W.I.P. I am open to contributions and suggestions, so 
 
 * [Math](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#math)
 
+* [Arrays](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#arrays)
+
 ## Logic
 ###### basic operators
 [both](http://ramdajs.com/0.19.1/docs/#both)
@@ -120,3 +122,46 @@ Note: this is very much a W.I.P. I am open to contributions and suggestions, so 
 [subtract](http://ramdajs.com/0.19.1/docs/#subtract)
 
 [sum](http://ramdajs.com/0.19.1/docs/#sum)
+
+## Arrays
+
+##### slicers, dicers, and splicers
+
+##### extremities 
+
+[head](http://ramdajs.com/0.19.1/docs/#head) first element
+
+[last](http://ramdajs.com/0.19.1/docs/#last) last element
+
+***
+##### extremity complements
+
+[init](http://ramdajs.com/0.19.1/docs/#init) everything but the tail
+
+[tail](http://ramdajs.com/0.19.1/docs/#tail) everything but the head
+
+*** 
+
+##### keep / discard
+
+[take](http://ramdajs.com/0.19.1/docs/#take) keep first N items
+
+[takeLast](http://ramdajs.com/0.19.1/docs/#dropLast) keep last N items
+
+[drop](http://ramdajs.com/0.19.1/docs/#drop) discard first N items
+
+[dropLast](http://ramdajs.com/0.19.1/docs/#dropLast) discard last N items
+
+***
+
+##### precision operations
+
+[nth](http://ramdajs.com/0.19.1/docs/#nth) retrieves Nth element
+
+[update](http://ramdajs.com/0.19.1/docs/#update) changes the Nth element
+
+[adjust](http://ramdajs.com/0.19.1/docs/#adjust) applies a fn to the Nth element
+
+***
+
+[slice](http://ramdajs.com/0.19.1/docs/#slice)
