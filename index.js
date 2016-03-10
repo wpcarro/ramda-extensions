@@ -526,3 +526,21 @@ function detour(detourFns, destinationFn) {
     )(a);
   };
 }
+
+// fork + converge
+// arity of convergefn should match length of forkfns
+function forkverge(convergefn, forkfns) {
+  return function(...args) {
+    const callfn = rOfArgs => (fn, i) => fn(rOfArgs[i]);
+    const applyResults = pipe(
+      mapX(callfn(args)),
+      apply(convergefn)
+    );
+    return applyResults(forkfns);
+  };
+}
+
+// wraps arbitrary number of args in an array
+function wrap(...args) {
+  return args;
+}
