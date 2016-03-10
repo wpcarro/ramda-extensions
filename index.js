@@ -17,12 +17,12 @@ const {
   slice,
   take, takeLast, toUpper, trim,
   range, replace, reduce, reduced,
-  split, sum,
+  split, subtract, sum,
   times, type, toString,
   view,
-  when
+  when,
+  zip
 } = R;
-const _ = R.__;
 
 // see addIndex in Ramda.js docs
 const reduceX = addIndex(reduce);
