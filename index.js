@@ -544,3 +544,21 @@ function forkverge(convergefn, forkfns) {
 function wrap(...args) {
   return args;
 }
+
+// threads x arguments through x functions
+// fns.length should equal args.length
+function threadArgs(...fns) {
+  return function(...args) {
+    
+    const callEach = (tuple) => {
+      const fn = tuple[0];
+      const arg = tuple[1];
+      return fn(arg);
+    };
+    
+    return compose(
+      map(callEach),
+      zip
+    )(fns, args)
+  };
+}
