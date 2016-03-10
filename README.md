@@ -311,7 +311,7 @@ add(1), subtract(_, 4), multiply(3)
 10 --> subtract(_, 4) --> 6
 3  --> multiply(3) -----> 9
 ```
-The result of the call to threadArgs will be an array.
+The result of the call to threadArgs will be an array containing the results of each fn call.
 ```javascript
 threadArgs(
   add(1), subtract(_, 4), multiply(3)
