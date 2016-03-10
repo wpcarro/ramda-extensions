@@ -22,6 +22,12 @@ Note: this is very much a W.I.P. I am open to contributions and suggestions, so 
 * [Math](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#math)
 
 * [Arrays](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#arrays)
+  * [extremities](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#extremities)
+  * [extremity complements](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#extremity-complements)
+  * [keep / discard](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#keep-/-discard)
+  * [precision operations](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#precision-operations)
+  * [misc](https://github.com/wpcarro/ramda-extensions/blob/master/RamdaCheatsheet.md#misc)
+
 
 ## Logic
 ###### basic operators
@@ -124,8 +130,6 @@ Note: this is very much a W.I.P. I am open to contributions and suggestions, so 
 [sum](http://ramdajs.com/0.19.1/docs/#sum)
 
 ## Arrays
-
-##### slicers, dicers, and splicers
 
 ##### extremities 
 
