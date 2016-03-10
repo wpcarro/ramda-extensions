@@ -205,9 +205,7 @@ splitNum(1992) // [1, 9, 9, 2]
 ##### `typeCtor(x)`
 ###### constructor fetcher
 ```javascript
-map(
-  typeCtor
-)([1, 2, 'schoolbus', {a: 1, b: 2, c: 3}])
+map(typeCtor, [1, 2, 'schoolbus', {a: 1, b: 2, c: 3}])
 // => [Number, Number, String, Object]
 ```
 
@@ -264,7 +262,7 @@ alphabet()
 //  "u", "v", "w", "x", "y", 
 //  "z"]
 
-const fullAlphabet = ap([toLowerCase, toUper], alphabet);
+const fullAlphabet = ap([toLowerCase, toUpper], alphabet);
 // ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
 //  "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
 //  "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", 
@@ -288,7 +286,7 @@ getInterior([2, 4, 6, 8, 10, 12]);
 ##### `wrap(a, b, .. z)`
 ###### wraps an arbitrary number of elements in an array
 ```javascript
-// useful as a convergence fn since its arity dynamic
+// useful as a convergence fn since its arity is dynamic
 converge(wrap,
   [add(1), subtract(_, 5), multiply(2)]
 )(12)
