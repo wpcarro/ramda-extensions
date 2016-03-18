@@ -112,7 +112,7 @@ discardGap(isString)([1, 'a', 2, 'b', 3, 'c'])
 // => [1, null, 2, null, 3, null]
 ```
 
-##### `filterGap(predicate, xs) or keep(predicate, xs)`
+##### `filterGap(predicate, xs) or keepGap(predicate, xs)`
 `filterGap | keepGap :: (a -> Boolean) -> f a -> f a`
 ```javascript
 filterGap(isString)([1, 'a', 2, 'b', 3, 'c'])
