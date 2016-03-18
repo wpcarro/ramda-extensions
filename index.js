@@ -562,3 +562,24 @@ function threadArgs(...fns) {
     )(fns, args)
   };
 }
+
+// clamp generator
+function createClamp(range) {
+  return function(x) {
+    if (x > range[1]) { return range[1]; }
+    if (x < range[0]) { return range[0]; }
+    return x;
+  };
+}
+
+// creates a function that maps values from a domain to a desired range
+function remap(domain, range) {
+  return function(x) {
+    const offset = x - domain[0];
+    const domainSz = domain[1] - domain[0];
+    const rangeSz = range[1] - range[0];
+    const scaleFactor = rangeSz / domainSz;
+
+    return offset * scaleFactor + range[0];
+  };
+}
