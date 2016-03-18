@@ -386,3 +386,26 @@ const l1 = [1,2,3];
 shortestListInterpolate(l0, l1);
 // => [["a", "c", "f"], [1, 2, 3]]
 ```
+
+## Graphics Helpers
+
+##### `createClamp(range)(x)`
+```javascript
+const range = [-5, 5];
+const constrainVals = createClamp(range);
+
+constrainVals(3);   // => 3
+constrainVals(6);   // => 5
+constrainVals(-10); // => -5
+```
+
+##### `remap(domain, range)(x)`
+```javascript
+const expectedInput = [0, 250];
+const desiredOutput = [-1, 1];
+
+const transformVals = remap(expectedInput, desiredOutput);
+transformVals(200).toFixed(2); // =>  "0.60"
+transformVals(0).toFixed(2);   // => "-1.00"
+transformvals(250).toFixed(2)  // =>  "1.00"
+```
