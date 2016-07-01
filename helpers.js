@@ -1,16 +1,18 @@
 /*
   contains basic helper functions
-  Incomplete and disfunctional. Don't use
 */
 
-function is_obj(x) {
-  return !Array.isArray(x) && typeof x === 'object';
-}
+const is_obj = (x) =>
+  !Array.isArray(x) && typeof x === 'object';
 
 
-function remove_dir(path) {
-  return path.replace(/[^\/]+\/$/, '');
-}
+const remove_dir = (path) =>
+  path.replace(/[^\/]+\/$/, '');
+
+
+const keys = (o) =>
+  Object.keys(o);
+
 
 /*
   JS analogue to bash `find` command
@@ -18,29 +20,35 @@ function remove_dir(path) {
     or null if the key doesn't exist in the object.
   This is accomplished through a breadth-first search.
 */
-function obj_find(key, obj) {
-  let path = './';
+function key_in_obj(key, o) {
   let found = false;
+  let q = [];
   
-  (function recurse(obj) {
-    Object.keys(obj).map(k => {
+  return (function recurse(key, o) {
+    // base case
+    if (found) {
+      return found;
+    }
+    
+    // continuation case
+    let k;
+    const ks = keys(o);
+    for (let i = 0; i < ks.length; i += 1) {
+      k = ks[i];
+      // check if key
       if (k === key) {
         found = true;
+        return found;
       }
-      else if (is_obj(obj[k])) {
-        path += k + '/';
-        
-        if (!found) {
-          recurse(obj[k]);
-          
-          if (!found) {
-            path = remove_dir(path);
-          }
-        }
-        
+      // check if object
+      else if (is_obj(o[k])) {
+        q.push(o[k]);
       }
-    });
-  }(obj));
-  
-  return found ? path : null;
+    }
+    for (let i = 0; i < q.length ; i += 1) {
+      return recurse(key, q.shift());
+    }
+    
+    return found;
+  }(key, o));
 }
